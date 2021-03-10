@@ -115,6 +115,7 @@ function lookForSignup(timer) {
 // Sound requirement info: https://goo.gl/xX8pDD
 function playTestSound() {
     var audio = new Audio(chrome.runtime.getURL("sounds/test-ring.mp3"));
+    audio.volume = 0.2;
     log("Test ring!");
     audio.play().then(function () {
         // If they've enabled sound, set up the interval to check the page over and over
@@ -137,6 +138,7 @@ function playTestSound() {
 // Rings for the user, so they know it's their turn.
 function ring() {
     var audio = new Audio(chrome.runtime.getURL("sounds/ring.mp3"));
+    audio.volume = 0.2;
     log("It's your turn to sign up!");
     audio.play().catch(function(error) {
         // If somehow we lost sound permissions, alert them to let them know.
